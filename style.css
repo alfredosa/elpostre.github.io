@@ -1,0 +1,398 @@
+/*
+Tutorial Name: Scroll To Top Then Fixed Navigation Effect With JQuery and CSS
+https://stanhub.com/scroll-to-top-then-fixed-navigation-effect-with-jquery-and-css-free-download/
+Description: Create a sticky navigation bar that remains fixed to the top after scroll
+Author: Stan Kostadinov
+Author URI: https://stanhub.com
+Version: 1.0.0 - 11.01.2014
+*/
+
+* {margin: 0; padding: 0;}
+
+a {text-decoration: none;}
+
+/* This class is added on scroll */
+.fixed {
+	position: fixed;
+	top: 0;
+	height: 70px;
+	z-index: 1;
+}
+
+body {
+	color: #fff;
+	font-family: 'open-sans-bold', AvenirNext-Medium, sans-serif;
+}
+
+/* Navigation Settings */
+nav {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	background: #fff;
+	vertical-align: top;
+}
+
+nav li {
+	display: inline-block;
+	padding: 24px 10px;
+}
+
+nav li a {
+	color: #757575;
+	text-transform: uppercase;
+}
+
+section {
+	height: 100vh;
+}
+
+/* Screens Settings */
+#screen1 {
+	background: #722F37;
+}
+
+#screen1 p {
+	padding-top: 200px;
+}
+
+#screen2 {
+	background: #913540;
+}
+
+#screen3 {
+	background: #ac3442;
+}
+
+@media only screen and (max-width: 520px) {
+
+	nav li {
+		padding: 24px 4px;
+	}
+
+	nav li a {
+		font-size: 14px;
+	}
+
+}
+
+.scroll-down-arrow {
+	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2hldnJvbl90aGluX2Rvd24iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiBmaWxsPSJ3aGl0ZSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZD0iTTE3LjQxOCw2LjEwOWMwLjI3Mi0wLjI2OCwwLjcwOS0wLjI2OCwwLjk3OSwwYzAuMjcsMC4yNjgsMC4yNzEsMC43MDEsMCwwLjk2OWwtNy45MDgsNy44M2MtMC4yNywwLjI2OC0wLjcwNywwLjI2OC0wLjk3OSwwbC03LjkwOC03LjgzYy0wLjI3LTAuMjY4LTAuMjctMC43MDEsMC0wLjk2OWMwLjI3MS0wLjI2OCwwLjcwOS0wLjI2OCwwLjk3OSwwTDEwLDEzLjI1TDE3LjQxOCw2LjEwOXoiLz48L3N2Zz4=);
+	background-size: contain;
+	background-repeat: no-repeat;
+  }
+  
+  .scroll-down-link {
+	position: absolute;
+	z-index: 100;
+	cursor: pointer;
+	height: 10%;
+	width: 10%;
+	margin: 0px 0 0 -40px;
+	line-height: 60px;
+	left: 50%;
+	bottom: 140px;
+	color: #FFF;
+	text-align: center;
+	font-size: 70px;
+	text-decoration: none;
+	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+	-webkit-animation: fade_move_down 2s ease-in-out infinite;
+	-moz-animation: fade_move_down 2s ease-in-out infinite;
+	animation: fade_move_down 2s ease-in-out infinite;
+	/*animated scroll arrow animation*/
+  }
+  @-webkit-keyframes fade_move_down {
+	0% {
+	  -webkit-transform: translate(0, -20px);
+	  opacity: 0;
+	}
+	50% {
+	  opacity: 1;
+	}
+	100% {
+	  -webkit-transform: translate(0, 20px);
+	  opacity: 0;
+	}
+  }
+  @-moz-keyframes fade_move_down {
+	0% {
+	  -moz-transform: translate(0, -20px);
+	  opacity: 0;
+	}
+	50% {
+	  opacity: 1;
+	}
+	100% {
+	  -moz-transform: translate(0, 20px);
+	  opacity: 0;
+	}
+  }
+  @keyframes fade_move_down {
+	0% {
+	  transform: translate(0, -20px);
+	  opacity: 0;
+	}
+	50% {
+	  opacity: 1;
+	}
+	100% {
+	  transform: translate(0, 20px);
+	  opacity: 0;
+	}
+  }
+  .footer-basic {
+    padding:40px 0;
+    color:#000000;
+    
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+    display: inline-block;
+  }
+  
+  .footer-basic ul a {
+    color: grey;
+    text-decoration:none;
+    opacity:0.8;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #722F37;
+    margin:0 8px;
+    opacity:0.8;
+    color: #722F37;
+  }
+  
+  .footer-basic .social > a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  }
+  .column {
+	float: left;
+	width: 25%;
+	padding: 0 10px;
+  }
+
+  .card > img {
+	margin: auto;
+	align-content: center;
+	width: 50%;
+	height: 50%;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+  /* Style the counter cards */
+  .card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+	padding: 16px;
+	text-align: center;
+	background-color: #f1f1f1;
+  }
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+	.column {
+	  width: 100%;
+	  display: block;
+	  margin-bottom: 20px;
+	}
+  }
+
+  body {
+	font-size: 100%;
+	line-height: 1.5;
+	overflow-y: scroll;
+  }
+  
+  .expanding-grid {
+	position: relative;
+	width: 90%;
+	margin: auto;
+  }
+  .expanding-grid .links {
+	display: block;
+	margin: 0 -1em;
+	overflow: hidden;
+	padding: 1em 0;
+  }
+  .expanding-grid .links > li {
+	box-sizing: border-box;
+	float: left;
+	padding: 1em;
+	list-style: none;
+  }
+  .expanding-grid .links > li a {
+	background: orange;
+	color: #fff;
+	display: block;
+	font-size: 2em;
+	line-height: 1;
+	padding: 25% 1em;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	box-shadow: 12px 12px 2px 1px rgba(8, 8, 19, 0.2);
+  }
+  .expanding-grid .links > li a:hover {
+	background: #ffb733;
+	opacity: .9;
+  }
+  .expanding-grid .links > li a.active {
+	background: #cc8400;
+  }
+  .expanding-grid .links > li a.active:after {
+	background-color: transparent;
+	border-bottom: 0.375em solid #888;
+	border-left: 0.375em solid transparent;
+	border-right: 0.375em solid transparent;
+	bottom: -0.5em;
+	content: "";
+	height: 0;
+	left: 50%;
+	margin-left: -0.375em;
+	position: absolute;
+	width: 0;
+  }
+  @media only screen and (max-width: 39.99em) {
+	.expanding-grid .links > li {
+	  width: 50%;
+	}
+	.expanding-grid .links > li:nth-of-type(2n+1) {
+	  clear: left;
+	}
+  }
+  @media only screen and (min-width: 40em) and (max-width: 59.99em) {
+	.expanding-grid .links > li {
+	  width: 33.3333333333%;
+	}
+	.expanding-grid .links > li:nth-of-type(3n+1) {
+	  clear: left;
+	}
+  }
+  @media only screen and (min-width: 60em) {
+	.expanding-grid .links > li {
+	  width: 25%;
+	}
+	.expanding-grid .links > li:nth-of-type(4n+1) {
+	  clear: left;
+	}
+  }
+  .expanding-grid .spacer {
+	background-color: #888;
+	clear: both;
+	display: block;
+	margin: 0 1em;
+  }
+  .expanding-grid .expanding-container {
+	clear: both;
+	display: none;
+	overflow: hidden;
+	width: 100%;
+  }
+  .expanding-grid .expanding-container.expanded, .expanding-grid .expanding-container:target {
+	display: block;
+  }
+  .expanding-grid .hentry {
+	background: #ac3442;
+	box-sizing: border-box;
+	clear: both;
+	color: #fff;
+	min-height: 4em;
+	overflow: hidden;
+	padding: 2em;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+  .expanding-grid .hentry .entry-image {
+	box-sizing: border-box;
+	float: right;
+	margin-left: 1em;
+	padding: 0.25em 0 0.52em 1em;
+	text-align: center;
+	width: 50%;
+  }
+  .expanding-grid .hentry .entry-title {
+	font-size: 1.5em;
+  }
+  .expanding-grid .close-button {
+	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNLjcuN2wxOCAxOG0tMTggMGwxOC0xOCIvPjwvc3ZnPg==) no-repeat scroll 50% 50% transparent;
+	color: #fff;
+	display: inline-block;
+	height: 20px;
+	line-height: 1;
+	overflow: hidden;
+	padding: 1.5em 2em;
+	text-decoration: none;
+	text-indent: 5em;
+	white-space: nowrap;
+	width: 20px;
+	will-change: opacity;
+	z-index: 5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+  .expanding-grid .close-button.active {
+	transition: opacity 0.2s;
+  }
+  .expanding-grid .close-button:hover {
+	opacity: 0.5;
+  }
+  
+  .img-placeholder {
+	background: orange;
+	color: #fff;
+	font-size: 4em;
+	font-weight: 300;
+	line-height: 1;
+	padding: 25% 0.25em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
